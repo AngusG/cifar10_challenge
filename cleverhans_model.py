@@ -74,10 +74,6 @@ class Input(Layer):
         batch_size, rows, cols, input_channels = input_shape
         # assert self.mode == 'train' or self.mode == 'eval'
         """Build the core model within the graph."""
-        with tf.variable_scope('input', reuse=tf.AUTO_REUSE):
-            # self.y_input = tf.placeholder(tf.int64, shape=None)
-            self.logits_scalar = tf.placeholder_with_default(
-                INIT_T, shape=(), name="logits_temperature")
         input_shape = list(input_shape)
         input_shape[0] = 1
         dummy_batch = tf.zeros(input_shape)
